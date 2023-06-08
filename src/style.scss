@@ -48,6 +48,14 @@ $red-darker: #a71d2a;
     gap: 10px;
     align-items: center;
 
+    .main-logo{
+      height: 80px;
+      object-fit: cover;
+      transform: scale (0.35);
+      margin-bottom: 0;
+      padding-bottom: 0;
+
+    }
     .logo {
       color: $gray-dark;
       font-weight: bold;
@@ -57,7 +65,10 @@ $red-darker: #a71d2a;
 
     .title {
       color: $gray-dark;
-      font-size: 12px;
+      font-size: 16px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold;
+      margin-top: 0;
     }
 
     form {
@@ -76,12 +87,36 @@ $red-darker: #a71d2a;
       }
 
       button {
+        &.signin_btn {
+          background-color: $orange;
+          transition: background-color 0.5s ease-in-out;
+          color: $white;
+          padding: 10px;
+          font-weight: bold;
+          border: none;
+          cursor: pointer;
+          border-radius: .5rem;
+
+          &:hover {
+            background-color: $green;
+          }
+          &:active{
+            background-color: $blue;
+            transition: background-color .2s ease-in-out;
+          }
+        }
         background-color: $green;
         color: $white;
         padding: 10px;
         font-weight: bold;
         border: none;
         cursor: pointer;
+      }
+      
+      .error-msg{
+        font-weight: bold;
+        color: $red;
+        font-size: 12px;
       }
 
       label {
@@ -98,9 +133,18 @@ $red-darker: #a71d2a;
       }
     }
     p {
+      font-family: 'Poppins', sans-serif;
       color: $gray-dark;
       font-size: 12px;
       margin-top: 10px;
+    }
+    .link{
+      color: $green;
+      font-weight: bold;
+      font-size: 12px;
+      cursor: pointer;
+      transition: color .2s ease-in-out;
+      font-family: 'Poppins', sans-serif;
     }
   }
 }
