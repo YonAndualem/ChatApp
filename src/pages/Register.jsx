@@ -5,6 +5,7 @@ import { auth, db, storage } from "../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
 import { useNavigate, Link } from "react-router-dom";
+import logo from "../img/1.png";
 
 const Register = () => {
   const [err, setErr] = useState(false);
@@ -62,7 +63,7 @@ const Register = () => {
   return (
     <div className="formContainer">
       <div className="formWrapper">
-        <span className="logo">ChatApp</span>
+        <img className="main-logo" src={logo} alt="logo" />
         <span className="title">Sign Up</span>
         <form onSubmit={handleSubmit}>
           <input required type="text" placeholder="Name" />
@@ -70,15 +71,15 @@ const Register = () => {
           <input required type="password" placeholder="Password" />
           <input required style={{ display: "none" }} type="file" id="file" />
           <label htmlFor="file">
-            <img src={Add} alt="" />
+            <img src={Add} alt="" required/>
             <span>Add an avatar</span>
           </label>
-          <button disabled={loading}>Sign up</button>
+          <button disabled={loading} className="sign_btn">Sign up</button>
           {loading && "Uploading and compressing the image please wait..."}
-          {err && <span>Something went wrong</span>}
+          {err && <span className="error-msg">Something went wrong <br />Try again!</span>}
         </form>
         <p>
-          You do have an account? <Link to="/login">Login</Link>
+          You do have an account? <Link to="/login" className="link">Login</Link>
         </p>
       </div>
     </div>

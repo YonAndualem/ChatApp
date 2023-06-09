@@ -28,7 +28,7 @@ const Login = () => {
         <form onSubmit={handleSubmit}>
           <input type="email" placeholder="email" />
           <input type="password" placeholder="password" />
-          <button className="signin_btn">Sign in</button>
+          <button className="sign_btn">Sign in</button>
           {err && <span className="error-msg">Something went wrong! <br />Check your email or password!</span>}
         </form>
         <p>You don't have an account? <Link to="/register" className="link">Sign Up</Link></p>
