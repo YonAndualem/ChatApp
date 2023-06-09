@@ -13,6 +13,7 @@ $green-darker: #1e7e34;
 $red: #dc3545;
 $red-dark: #c82333;
 $red-darker: #a71d2a;
+$background-color: linear-gradient(269.2deg, #444753 -3.53%, #5668A7 20.24%, rgba(199, 202, 215, 0.547466) 64.27%, rgba(217, 225, 255, 0.98) 99.25%, rgba(255, 255, 255, 0.298617) 99.25%);
 
 @mixin mobile {
   @media screen and (max-width: 480px) {
@@ -33,7 +34,7 @@ $red-darker: #a71d2a;
 }
 
 .formContainer {
-  background: linear-gradient(90deg, $orange 0%, $blue 100%);
+  background: $background-color;
   height: 100vh;
   display: flex;
   align-items: center;
