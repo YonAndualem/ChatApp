@@ -40,7 +40,7 @@ $sign-btn: #525E87;
   height: 100vh;
   display: flex;
   align-items: center;
- justify-content: center;
+  justify-content: center;
 
   .formWrapper {
     background-color: $white;
@@ -84,6 +84,11 @@ $sign-btn: #525E87;
         &::placeholder {
           color: $gray-medium;
         }
+      }
+      .image-add{
+        color: $gray-dark;
+        font-size: 15px;
+        padding-left: 10px;
       }
 
       button {

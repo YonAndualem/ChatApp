@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import logo from "../img/1.png";
+import { UilSignin } from '@iconscout/react-unicons'
 
 const Login = () => {
   const [err, setErr] = useState(false);
@@ -24,7 +25,7 @@ const Login = () => {
     <div className="formContainer">
       <div className="formWrapper">
         <img className="main-logo" src={logo} alt="logo" />
-        <span className="title">Login</span>
+        <span className="title"><UilSignin className="uil"/>Login</span>
         <form onSubmit={handleSubmit}>
           <input type="email" placeholder="email" />
           <input type="password" placeholder="password" />

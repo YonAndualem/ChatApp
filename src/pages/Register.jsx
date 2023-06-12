@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import Add from "../img/addAvatar.png";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, db, storage } from "../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
 import { useNavigate, Link } from "react-router-dom";
 import logo from "../img/1.png";
+import { UilSignInAlt } from '@iconscout/react-unicons'
+import { UilCameraPlus } from '@iconscout/react-unicons'
 
 const Register = () => {
   const [err, setErr] = useState(false);
@@ -64,15 +65,17 @@ const Register = () => {
     <div className="formContainer">
       <div className="formWrapper">
         <img className="main-logo" src={logo} alt="logo" />
-        <span className="title">Sign Up</span>
+        <span className="title"><UilSignInAlt className="uil" /> Sign Up </span>
         <form onSubmit={handleSubmit}>
           <input required type="text" placeholder="Name" />
           <input required type="email" placeholder="email" />
           <input required type="password" placeholder="Password" />
           <input required style={{ display: "none" }} type="file" id="file" />
           <label htmlFor="file">
-            <img src={Add} alt="" required/>
-            <span>Add an avatar</span>
+            <span> <UilCameraPlus className="uil"/>
+            <span className="image-add">
+            Add an avatar
+            </span></span>
           </label>
           <button disabled={loading} className="sign_btn">Sign up</button>
           {loading && "Uploading and compressing the image please wait..."}
