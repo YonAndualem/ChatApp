@@ -12,6 +12,8 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase";
 import { AuthContext } from "../context/AuthContext";
+import { UilSearchPlus } from '@iconscout/react-unicons'
+
 const Search = () => {
   const [username, setUsername] = useState("");
   const [user, setUser] = useState(null);
@@ -79,9 +81,10 @@ const Search = () => {
   return (
     <div className="search">
       <div className="searchForm">
+        <span><UilSearchPlus className="search-ico"/></span>
         <input
           type="text"
-          placeholder="Search 🔍"
+          placeholder="Search"
           onKeyDown={handleKey}
           onChange={(e) => setUsername(e.target.value)}
           value={username}
