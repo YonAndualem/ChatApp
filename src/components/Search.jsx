@@ -81,7 +81,7 @@ const Search = () => {
   return (
     <div className="search">
       <div className="searchForm">
-        <span><UilSearchPlus className="search-ico"/></span>
+        <span> <UilSearchPlus className="search-ico"/></span>
         <input
           type="text"
           placeholder="Search"
