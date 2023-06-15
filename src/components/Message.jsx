@@ -12,6 +12,8 @@ const Message = ({ message }) => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   }, [message]);
 
+  const timeString = formatTime(message.date.toDate());
+
   return (
     <div
       ref={ref}
@@ -26,14 +28,28 @@ const Message = ({ message }) => {
           }
           alt=""
         />
-        <span>{message.date.toDate().toLocaleTimeString()}</span>
+        <span className="time">{timeString}</span>
       </div>
       <div className="messageContent">
-        <p>{message.text}</p>
+        <p>{message.text}</p> 
         {message.img && <img src={message.img} alt="" />}
       </div>
     </div>
   );
 };
+
+function formatTime(date) {
+  const now = new Date();
+  const diff = (now.getTime() - date.getTime()) / 1000;
+
+  if (diff < 60) {
+    return "just now";
+  } else if (diff < 60 * 60 * 6) {
+    const minutes = Math.floor(diff / 60);
+    return `${minutes} minute${minutes > 1 ? "s" : ""} ago`;
+  } else {
+    return date.toLocaleTimeString();
+  }
+}
 
 export default Message;

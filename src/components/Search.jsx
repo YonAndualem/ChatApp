@@ -13,6 +13,8 @@ import {
 import { db } from "../firebase";
 import { AuthContext } from "../context/AuthContext";
 import { UilSearchPlus } from '@iconscout/react-unicons'
+import { UilExclamationTriangle } from '@iconscout/react-unicons'
+import { UilEllipsisH } from '@iconscout/react-unicons'
 
 const Search = () => {
   const [username, setUsername] = useState("");
@@ -26,13 +28,19 @@ const Search = () => {
       collection(db, "users"),
       where("displayName", "==", username)
     );
-
+  
     try {
       const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
-        setUser(doc.data());
-      });
+      if (!querySnapshot.empty) {
+        const userDoc = querySnapshot.docs[0];
+        setUser(userDoc.data());
+        setErr(false);
+      } else {
+        setUser(null);
+        setErr(true);
+      }
     } catch (err) {
+      setUser(null);
       setErr(true);
     }
   };
@@ -89,8 +97,9 @@ const Search = () => {
           onChange={(e) => setUsername(e.target.value)}
           value={username}
         />
+
       </div>
-      {err && <span>User not found!</span>}
+      {err && <span className="error-msg"> <UilExclamationTriangle size="20px"/> User not found!</span>}
       {user && (
         <div className="userChat" onClick={handleSelect}>
           <img src={user.photoURL} alt="" />
@@ -98,8 +107,13 @@ const Search = () => {
             <span>{user.displayName}</span>
           </div>
         </div>
+
       )}
-    </div>
+      <div>
+        <span className="split"><UilEllipsisH /> <UilEllipsisH /> <UilEllipsisH /></span>
+      </div>
+      
+      </div>
   );
 };
 

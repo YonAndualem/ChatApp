@@ -78,7 +78,7 @@ const Register = () => {
             </span></span>
           </label>
           <button disabled={loading} className="sign_btn">Sign up</button>
-          {loading && "Uploading and compressing the image please wait..."}
+          {loading && "Uploading and compressing the <br/> image please wait..."}
           {err && <span className="error-msg">Something went wrong <br />Try again!</span>}
         </form>
         <p>
