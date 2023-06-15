@@ -44,7 +44,7 @@ function formatTime(date) {
 
   if (diff < 60) {
     return "just now";
-  } else if (diff < 60 * 60 * 6) {
+  } else if (diff < 60 * 60) {
     const minutes = Math.floor(diff / 60);
     return `${minutes} minute${minutes > 1 ? "s" : ""} ago`;
   } else {
